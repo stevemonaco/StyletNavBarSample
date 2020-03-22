@@ -1,4 +1,5 @@
 ﻿using Stylet;
+using StyletNavBarSample.Infrastructure;
 
 namespace StyletNavBarSample.ViewModels
 {
@@ -26,6 +27,11 @@ namespace StyletNavBarSample.ViewModels
         public void ShowContent(PageContentViewModel content)
         {
             ActiveContent = content;
+        }
+
+        private void BuildMenus()
+        {
+            // Build initial menu, all submenus, and all page content VMs here
         }
     }
 }

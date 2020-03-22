@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Stylet;
 
-namespace Stylet
+namespace StyletNavBarSample.Infrastructure
 {
     public class MenuStackConductor<T> : ConductorBaseWithActiveItem<T> where T : class
     {
@@ -32,7 +32,7 @@ namespace Stylet
             else
             {
                 if (this.ActiveItem != null)
-                    this.history.Add(this.ActiveItem);
+                    AddHistory(this.ActiveItem);
                 this.ChangeActiveItem(item, false);
             }
         }
@@ -81,14 +81,14 @@ namespace Stylet
                 if (this.history.Count > 0)
                 {
                     newItem = this.history.Last();
-                    this.history.RemoveAt(this.history.Count - 1);
+                    RemoveHistoryAt(this.history.Count - 1);
                 }
                 this.ChangeActiveItem(newItem, true);
             }
             else if (this.history.Contains(item))
             {
                 this.CloseAndCleanUp(item, this.DisposeChildren);
-                this.history.Remove(item);
+                RemoveHistory(item);
             }
         }
 
@@ -114,9 +114,33 @@ namespace Stylet
             // We've already been deactivated by this point
             foreach (var item in this.history)
                 this.CloseAndCleanUp(item, this.DisposeChildren);
-            this.history.Clear();
+            ClearHistory();
 
             this.CloseAndCleanUp(this.ActiveItem, this.DisposeChildren);
+        }
+
+        private void AddHistory(T item)
+        {
+            this.history.Add(item);
+            CanGoBack = true;
+        }
+
+        private void RemoveHistory(T item)
+        {
+            history.Remove(item);
+            CanGoBack = history.Count > 0;
+        }
+
+        private void RemoveHistoryAt(int index)
+        {
+            history.RemoveAt(index);
+            CanGoBack = history.Count > 0;
+        }
+
+        private void ClearHistory()
+        {
+            history.Clear();
+            CanGoBack = false;
         }
     }
 }

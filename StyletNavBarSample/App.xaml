@@ -13,6 +13,8 @@
                             <local:StyletNavBarSampleBootstrapper />
                         </s:ApplicationLoader.Bootstrapper>
                     </s:ApplicationLoader>
+
+                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

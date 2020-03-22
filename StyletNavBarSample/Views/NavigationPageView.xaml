@@ -42,7 +42,10 @@
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ContentControl Grid.Column="0" s:View.Model="{Binding ActiveItem}" />
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="Back" Visibility="{Binding CanGoBack, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            <ContentControl s:View.Model="{Binding ActiveItem}" />
+        </StackPanel>
         <ContentControl Grid.Column="1" s:View.Model="{Binding ActiveContent}" />
     </Grid>
 </UserControl>
