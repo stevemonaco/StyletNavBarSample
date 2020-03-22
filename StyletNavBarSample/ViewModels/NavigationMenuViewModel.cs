@@ -8,10 +8,15 @@ namespace StyletNavBarSample.ViewModels
 {
     class NavigationMenuViewModel : Screen
     {
-        public string Name { get; set; }
+        private NavigationPageViewModel _parentNavigator;
+        public NavigationPageViewModel ParentNavigator
+        {
+            get => _parentNavigator;
+            set => SetAndNotify(ref _parentNavigator, value);
+        }
 
-        private ItemCollection _menuOptions;
-        public ItemCollection MenuOptions
+        private BindableCollection<NavigationMenuViewModel> _menuOptions = new BindableCollection<NavigationMenuViewModel>();
+        public BindableCollection<NavigationMenuViewModel> MenuOptions
         {
             get => _menuOptions;
             set => SetAndNotify(ref _menuOptions, value);
