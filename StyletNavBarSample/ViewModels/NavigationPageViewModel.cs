@@ -21,6 +21,12 @@ namespace StyletNavBarSample.ViewModels
             ActiveContent = _initialMenu.PageContent;
         }
 
+        public void GoBackMenu()
+        {
+            GoBack();
+            ActiveContent = ActiveItem.PageContent;
+        }
+
         public void ShowMenu(NavigationMenuViewModel menu)
         {
             ActiveItem = menu;
@@ -29,9 +35,11 @@ namespace StyletNavBarSample.ViewModels
 
         private void BuildMenus()
         {
-            _initialMenu = new NavigationMenuViewModel();
-            _initialMenu.PageContent = new PageContentViewModel() { Title = "Menu Splash", Content = "Menu Splash Screen" };
-            _initialMenu.ParentNavigator = this;
+            _initialMenu = new NavigationMenuViewModel
+            {
+                PageContent = new PageContentViewModel() { Title = "Menu Splash", Content = "Menu Splash Screen" },
+                ParentNavigator = this
+            };
 
             _initialMenu.MenuOptions.Add(BuildMenuA());
             _initialMenu.MenuOptions.Add(BuildMenuB());
@@ -40,30 +48,40 @@ namespace StyletNavBarSample.ViewModels
 
         private NavigationMenuViewModel BuildMenuA()
         {
-            var menuA = new NavigationMenuViewModel();
-            menuA.DisplayName = "Menu A";
-            menuA.PageContent = new PageContentViewModel() { Title = "Menu A Title", Content = "Menu A Content" };
-            menuA.ParentNavigator = this;
+            var menuA = new NavigationMenuViewModel
+            {
+                DisplayName = "Menu A",
+                PageContent = new PageContentViewModel() { Title = "Menu A Title", Content = "Menu A Content" },
+                ParentNavigator = this
+            };
 
-            var menuA1 = new NavigationMenuViewModel();
-            menuA1.DisplayName = "Menu A.1";
-            menuA1.PageContent = new PageContentViewModel() { Title = "Menu A.1 Title", Content = "Menu A.1 Content" };
-            menuA1.ParentNavigator = this;
+            var menuA1 = new NavigationMenuViewModel
+            {
+                DisplayName = "Menu A.1",
+                PageContent = new PageContentViewModel() { Title = "Menu A.1 Title", Content = "Menu A.1 Content" },
+                ParentNavigator = this
+            };
 
-            var menuA2 = new NavigationMenuViewModel();
-            menuA2.DisplayName = "Menu A.2";
-            menuA2.PageContent = new PageContentViewModel() { Title = "Menu A.2 Title", Content = "Menu A.2 Content" };
-            menuA2.ParentNavigator = this;
+            var menuA2 = new NavigationMenuViewModel
+            {
+                DisplayName = "Menu A.2",
+                PageContent = new PageContentViewModel() { Title = "Menu A.2 Title", Content = "Menu A.2 Content" },
+                ParentNavigator = this
+            };
 
-            var menuA3 = new NavigationMenuViewModel();
-            menuA3.DisplayName = "Menu A.3";
-            menuA3.PageContent = new PageContentViewModel() { Title = "Menu A.3 Title", Content = "Menu A.3 Content" };
-            menuA3.ParentNavigator = this;
+            var menuA3 = new NavigationMenuViewModel
+            {
+                DisplayName = "Menu A.3",
+                PageContent = new PageContentViewModel() { Title = "Menu A.3 Title", Content = "Menu A.3 Content" },
+                ParentNavigator = this
+            };
 
-            var menuA1a = new NavigationMenuViewModel();
-            menuA1a.DisplayName = "Menu A.1.a";
-            menuA1a.PageContent = new PageContentViewModel() { Title = "Menu A.1.a Title", Content = "Menu A.1.a Content" };
-            menuA1a.ParentNavigator = this;
+            var menuA1a = new NavigationMenuViewModel
+            {
+                DisplayName = "Menu A.1.a",
+                PageContent = new PageContentViewModel() { Title = "Menu A.1.a Title", Content = "Menu A.1.a Content" },
+                ParentNavigator = this
+            };
 
             menuA1.MenuOptions.Add(menuA1a);
 
@@ -76,20 +94,24 @@ namespace StyletNavBarSample.ViewModels
 
         private NavigationMenuViewModel BuildMenuB()
         {
-            var menuB = new NavigationMenuViewModel();
-            menuB.DisplayName = "Menu B";
-            menuB.PageContent = new PageContentViewModel() { Title = "Menu B Title", Content = "Menu B Content" };
-            menuB.ParentNavigator = this;
+            var menuB = new NavigationMenuViewModel
+            {
+                DisplayName = "Menu B",
+                PageContent = new PageContentViewModel() { Title = "Menu B Title", Content = "Menu B Content" },
+                ParentNavigator = this
+            };
 
             return menuB;
         }
 
         private NavigationMenuViewModel BuildMenuC()
         {
-            var menuC = new NavigationMenuViewModel();
-            menuC.DisplayName = "Menu C";
-            menuC.PageContent = new PageContentViewModel() { Title = "Menu C Title", Content = "Menu C Content" };
-            menuC.ParentNavigator = this;
+            var menuC = new NavigationMenuViewModel
+            {
+                DisplayName = "Menu C",
+                PageContent = new PageContentViewModel() { Title = "Menu C Title", Content = "Menu C Content" },
+                ParentNavigator = this
+            };
 
             return menuC;
         }

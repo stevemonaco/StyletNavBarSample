@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
             <Button
-                Command="{s:Action GoBack}"
+                Command="{s:Action GoBackMenu}"
                 Content="Back"
                 Visibility="{Binding CanGoBack, Converter={StaticResource BooleanToVisibilityConverter}}" />
             <ContentControl s:View.Model="{Binding ActiveItem}" />
