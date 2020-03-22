@@ -27,11 +27,6 @@ namespace StyletNavBarSample.ViewModels
             ActiveContent = menu.PageContent;
         }
 
-        public void ShowContent(PageContentViewModel content)
-        {
-            ActiveContent = content;
-        }
-
         private void BuildMenus()
         {
             _initialMenu = new NavigationMenuViewModel();
